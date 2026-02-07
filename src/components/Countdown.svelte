@@ -2,28 +2,23 @@
   import { onMount } from "svelte";
 
   export let date: string = "";
-  let display = "--";
-
-  function formatTimeLeft(ms: number): string {
-    if (ms <= 0) return "Live!";
-    const seconds = Math.floor((ms / 1000) % 60);
-    const minutes = Math.floor((ms / (1000 * 60)) % 60);
-    const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-
-    const parts: string[] = [];
-    if (days > 0) parts.push(`${days}d`);
-    if (hours > 0) parts.push(`${hours}h`);
-    if (minutes > 0) parts.push(`${minutes}m`);
-    parts.push(`${seconds}s`);
-
-    return parts.join(" ");
-  }
+  let parts = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  let isLive = false;
 
   onMount(() => {
     const target = new Date(date).getTime();
     const tick = () => {
-      display = formatTimeLeft(target - Date.now());
+      const ms = target - Date.now();
+      if (ms <= 0) {
+        isLive = true;
+        return;
+      }
+      parts = {
+        seconds: Math.floor((ms / 1000) % 60),
+        minutes: Math.floor((ms / (1000 * 60)) % 60),
+        hours: Math.floor((ms / (1000 * 60 * 60)) % 24),
+        days: Math.floor(ms / (1000 * 60 * 60 * 24)),
+      };
     };
     tick();
     const id = setInterval(tick, 1000);
@@ -31,4 +26,25 @@
   });
 </script>
 
-<span>{display}</span>
+{#if isLive}
+  <span class="accent-glow font-mono text-2xl font-bold">Live!</span>
+{:else}
+  <div class="flex gap-4">
+    <div class="flex flex-col items-center gap-1.5">
+      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.days}</span>
+      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">days</span>
+    </div>
+    <div class="flex flex-col items-center gap-1.5">
+      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.hours}</span>
+      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">hours</span>
+    </div>
+    <div class="flex flex-col items-center gap-1.5">
+      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.minutes}</span>
+      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">minutes</span>
+    </div>
+    <div class="flex flex-col items-center gap-1.5">
+      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.seconds}</span>
+      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">seconds</span>
+    </div>
+  </div>
+{/if}

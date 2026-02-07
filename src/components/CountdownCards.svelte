@@ -13,7 +13,7 @@
     <article class="w-full min-w-0">
       <a
         href={`/games/${league.slug}`}
-        class="accent-border group block overflow-hidden rounded-lg border bg-void-soft transition-all hover:scale-[1.02]"
+        class="accent-border group block overflow-hidden rounded-lg border bg-void-soft transition-all hover:scale-[1.005]"
       >
         <div
           class="relative h-32 bg-cover bg-center"
@@ -22,16 +22,32 @@
           <div
             class="absolute inset-0 bg-gradient-to-t from-void to-transparent"
           ></div>
-          <div class="absolute bottom-3 left-4">
-            <h3 class="text-lg font-bold text-bone">{league.game}</h3>
-            <p class="text-sm text-silver">{league.event}</p>
+          <div class="absolute bottom-3 left-4 flex items-center gap-3">
+            {#if league.logo}
+              <img
+                src={league.logo}
+                alt=""
+                class="h-12 w-12 shrink-0 object-contain drop-shadow-md"
+              />
+            {/if}
+            <div>
+              <h3 class="text-lg font-bold text-bone">{league.game}</h3>
+              <p class="text-sm text-silver">{league.event}</p>
+            </div>
           </div>
         </div>
         <div class="p-4">
-          <div class="accent-glow mb-2 font-mono text-2xl font-bold">
-            <Countdown date={league.date} />
+          <div class="mb-2 flex items-start gap-4">
+            <div class="flex flex-col gap-1.5">
+              <span class="accent-glow font-mono text-2xl font-bold uppercase tracking-wider">
+                Launches in:
+              </span>
+              <span class="invisible rounded-md border border-slate px-2.5 py-0.5 text-xs">days</span>
+            </div>
+            <div class="accent-glow font-mono text-2xl font-bold">
+              <Countdown date={league.date} />
+            </div>
           </div>
-          <p class="text-sm text-mist">until launch</p>
           <span
             class="mt-2 inline-block text-sm font-medium text-[var(--accent-color)] transition-colors group-hover:text-[var(--accent-color)]"
           >

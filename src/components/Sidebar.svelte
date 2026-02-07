@@ -6,15 +6,14 @@
 </script>
 
 <aside
-  class="flex w-64 shrink-0 flex-col border-r border-slate bg-void-soft p-4"
+  class="flex w-28 shrink-0 flex-col border-r border-slate bg-void-soft p-4"
   role="navigation"
 >
   <h2 class="mb-4 text-sm font-semibold uppercase tracking-wider text-mist">
-    Games I want to see
+    Filter:
   </h2>
-  <p class="mb-4 text-xs text-mist">Click to toggle visibility</p>
 
-  <ul class="flex flex-wrap gap-2">
+  <ul class="flex flex-col items-center gap-2">
     {#each leagues as league}
       <li>
         <button
@@ -24,7 +23,7 @@
           class:border-slate={$hiddenGames[league.id]}
           class:grayscale={$hiddenGames[league.id]}
           class:opacity-50={$hiddenGames[league.id]}
-          title={league.game}
+          title={`${league.game} — Click to toggle visibility`}
           aria-pressed={!$hiddenGames[league.id]}
         >
           {#if league.logo}
@@ -52,9 +51,10 @@
       href="https://buymeacoffee.com"
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-accent block rounded px-3 py-2 text-center text-sm font-medium"
+      class="btn-accent block rounded px-2 py-1.5 text-center text-xs font-medium leading-tight"
+      title="Support the servers — Buy a Mana Potion"
     >
-      Support the servers (Buy a Mana Potion)
+      Buy Mana Potion
     </a>
   </div>
 </aside>

@@ -9,8 +9,8 @@
   class="flex w-28 shrink-0 flex-col border-r border-slate bg-void-soft p-4"
   role="navigation"
 >
-  <h2 class="mb-4 text-sm font-semibold uppercase tracking-wider text-mist">
-    Filter:
+  <h2 class="mb-4 border-b border-slate pb-2 text-center text-sm font-semibold uppercase tracking-wider text-mist">
+    Game filter
   </h2>
 
   <ul class="flex flex-col items-center gap-2">

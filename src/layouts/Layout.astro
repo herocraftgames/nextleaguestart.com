@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { getHeroLeague } from "../lib/leagues";
 import Sidebar from "../components/Sidebar.svelte";
+import AdRail from "../components/AdRail.svelte";
 
 const heroLeague = getHeroLeague();
 const accentColor = heroLeague?.accent_color ?? "#d97706";
@@ -18,8 +19,9 @@ const accentColor = heroLeague?.accent_color ?? "#d97706";
   </head>
   <body class="flex min-h-screen">
     <Sidebar client:load />
-    <main class="flex-1 overflow-auto">
+    <main class="min-w-0 flex-1 overflow-auto">
       <slot />
     </main>
+    <AdRail client:load />
   </body>
 </html>

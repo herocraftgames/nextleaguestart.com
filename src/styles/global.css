@@ -18,11 +18,11 @@
 }
 
 html {
-  @apply bg-void text-bone antialiased;
+  @apply overflow-x-hidden bg-void text-bone antialiased;
 }
 
 body {
-  @apply min-h-screen;
+  @apply min-h-screen overflow-x-hidden;
 }
 
 /* Accent glows for buttons and borders */

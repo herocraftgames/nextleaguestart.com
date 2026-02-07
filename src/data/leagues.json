@@ -1,5 +1,74 @@
 [
   {
+    "id": "torchlight-infinite",
+    "game": "Torchlight Infinite",
+    "slug": "torchlight-infinite",
+    "event": "Season 11: Vorax",
+    "date": "2026-01-16T02:00:00Z",
+    "accent_color": "#8b5cf6",
+    "bg_image": "/images/torchlight-infinite-hero.jpg",
+    "logo": "/assets/logos/torchlight-infinite.png",
+    "is_enabled": true,
+    "features": [
+      "Complete UI & VFX Overhaul",
+      "Enhanced Monster Models",
+      "Frostfire Gemma & Berserker Rehan Visual Updates",
+      "Redesigned Equipment Icons"
+    ],
+    "news": [
+      {
+        "title": "Season 11 Vorax Announcement",
+        "link": "https://torchlight.xd.com/en/news"
+      }
+    ]
+  },
+  {
+    "id": "path-of-exile-1",
+    "game": "Path of Exile 1",
+    "slug": "poe1",
+    "event": "3.28 League (TBA)",
+    "date": "2026-02-27T07:00:00Z",
+    "accent_color": "#c2410c",
+    "bg_image": "/images/poe1-hero.jpg",
+    "logo": "/assets/logos/path-of-exile-1.png",
+    "is_enabled": true,
+    "features": [
+      "New League Mechanic",
+      "Balance Updates",
+      "Challenge League Rewards",
+      "Endgame Content Refresh"
+    ],
+    "news": [
+      {
+        "title": "Path of Exile Forums - Next League",
+        "link": "https://www.pathofexile.com/forum"
+      }
+    ]
+  },
+  {
+    "id": "last-epoch",
+    "game": "Last Epoch",
+    "slug": "last-epoch",
+    "event": "Season 4: Shattered Omens",
+    "date": "2026-03-26T17:00:00Z",
+    "accent_color": "#7c3aed",
+    "bg_image": "/images/last-epoch-hero.jpg",
+    "logo": "/assets/logos/last-epoch.png",
+    "is_enabled": true,
+    "features": [
+      "Omen Windows - Wave-Based Encounters",
+      "Item Corruption System",
+      "Spellblade Rework",
+      "New Rogue Skills: Shadow Rend & Bladestorm"
+    ],
+    "news": [
+      {
+        "title": "2026 Roadmap - Steam News",
+        "link": "https://store.steampowered.com/news/app/899770"
+      }
+    ]
+  },
+  {
     "id": "poe-2",
     "game": "Path of Exile 2",
     "slug": "poe2",
@@ -7,6 +76,7 @@
     "date": "2026-11-20T19:00:00Z",
     "accent_color": "#d97706",
     "bg_image": "/images/poe2-hero.jpg",
+    "logo": "/assets/logos/poe-2.webp",
     "is_enabled": true,
     "features": [
       "12 Character Classes",
@@ -15,8 +85,14 @@
       "100+ Endgame Maps"
     ],
     "news": [
-      { "title": "Exilecon 2026 Announcement", "link": "https://pathofexile.com/news/1" },
-      { "title": "Director Jonathan Rogers on 1.0 Release", "link": "https://pathofexile.com/news/2" }
+      {
+        "title": "Exilecon 2026 Announcement",
+        "link": "https://pathofexile.com/news/1"
+      },
+      {
+        "title": "Director Jonathan Rogers on 1.0 Release",
+        "link": "https://pathofexile.com/news/2"
+      }
     ]
   },
   {
@@ -27,6 +103,7 @@
     "date": "2026-04-28T17:00:00Z",
     "accent_color": "#b91c1c",
     "bg_image": "/images/d4-vessel.jpg",
+    "logo": "/assets/logos/diablo-4.png",
     "is_enabled": true,
     "features": [
       "New Warlock Class",
@@ -34,7 +111,10 @@
       "Mercenary System Overhaul"
     ],
     "news": [
-      { "title": "30th Anniversary Spotlight", "link": "https://news.blizzard.com/diablo4" }
+      {
+        "title": "30th Anniversary Spotlight",
+        "link": "https://news.blizzard.com/diablo4"
+      }
     ]
   }
 ]

@@ -10,22 +10,39 @@
   role="navigation"
 >
   <h2 class="mb-4 text-sm font-semibold uppercase tracking-wider text-mist">
-    League Filter
+    Games I want to see
   </h2>
-  <ul class="space-y-2">
+  <p class="mb-4 text-xs text-mist">Click to toggle visibility</p>
+
+  <ul class="flex flex-wrap gap-2">
     {#each leagues as league}
       <li>
-        <label
-          class="flex cursor-pointer items-center gap-3 rounded px-2 py-1.5 text-sm transition-colors hover:bg-ash"
+        <button
+          type="button"
+          onclick={() => toggleGameVisibility(league.id)}
+          class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded border-2 border-mist transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-void focus:ring-mist"
+          class:border-slate={$hiddenGames[league.id]}
+          class:grayscale={$hiddenGames[league.id]}
+          class:opacity-50={$hiddenGames[league.id]}
+          title={league.game}
+          aria-pressed={!$hiddenGames[league.id]}
         >
-          <input
-            type="checkbox"
-            checked={!$hiddenGames[league.id]}
-            onchange={() => toggleGameVisibility(league.id)}
-            class="h-4 w-4 rounded border-slate bg-ash text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
-          />
-          <span>{league.game}</span>
-        </label>
+          {#if league.logo}
+            <img
+              src={league.logo}
+              alt={league.game}
+              class="h-full w-full object-contain p-1.5"
+              loading="lazy"
+            />
+          {:else}
+            <span
+              class="flex h-full w-full items-center justify-center text-xs font-bold"
+              style="color: {league.accent_color}"
+            >
+              {league.game.slice(0, 2).toUpperCase()}
+            </span>
+          {/if}
+        </button>
       </li>
     {/each}
   </ul>

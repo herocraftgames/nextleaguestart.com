@@ -13,6 +13,7 @@ export interface League {
   date: string;
   accent_color: string;
   bg_image: string;
+  logo?: string;
   is_enabled: boolean;
   features: string[];
   news: LeagueNews[];

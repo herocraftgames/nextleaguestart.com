@@ -4,16 +4,13 @@
   import Countdown from "./Countdown.svelte";
 
   export let leagues: League[] = [];
+
+  $: visibleLeagues = leagues.filter((l) => !$hiddenGames[l.id]);
 </script>
 
 <div class="grid gap-6 p-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-  {#each leagues as league (league.id)}
-    <article
-      class="transition-opacity duration-200"
-      class:opacity-0={$hiddenGames[league.id]}
-      class:pointer-events-none={$hiddenGames[league.id]}
-      class:invisible={$hiddenGames[league.id]}
-    >
+  {#each visibleLeagues as league (league.id)}
+    <article>
       <a
         href={`/games/${league.slug}`}
         class="accent-border group block overflow-hidden rounded-lg border bg-void-soft transition-all hover:scale-[1.02]"

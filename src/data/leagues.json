@@ -1,0 +1,40 @@
+[
+  {
+    "id": "poe-2",
+    "game": "Path of Exile 2",
+    "slug": "poe2",
+    "event": "Full 1.0 Launch",
+    "date": "2026-11-20T19:00:00Z",
+    "accent_color": "#d97706",
+    "bg_image": "/images/poe2-hero.jpg",
+    "is_enabled": true,
+    "features": [
+      "12 Character Classes",
+      "New Skill Gem System",
+      "6 Act Campaign",
+      "100+ Endgame Maps"
+    ],
+    "news": [
+      { "title": "Exilecon 2026 Announcement", "link": "https://pathofexile.com/news/1" },
+      { "title": "Director Jonathan Rogers on 1.0 Release", "link": "https://pathofexile.com/news/2" }
+    ]
+  },
+  {
+    "id": "diablo-4",
+    "game": "Diablo 4",
+    "slug": "diablo-4",
+    "event": "Lord of Hatred Expansion",
+    "date": "2026-04-28T17:00:00Z",
+    "accent_color": "#b91c1c",
+    "bg_image": "/images/d4-vessel.jpg",
+    "is_enabled": true,
+    "features": [
+      "New Warlock Class",
+      "Skovos Isles Region",
+      "Mercenary System Overhaul"
+    ],
+    "news": [
+      { "title": "30th Anniversary Spotlight", "link": "https://news.blizzard.com/diablo4" }
+    ]
+  }
+]

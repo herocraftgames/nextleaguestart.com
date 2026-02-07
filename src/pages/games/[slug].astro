@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLeagueBySlug, getEnabledLeagues } from "../../lib/leagues";
+
+export function getStaticPaths() {
+  const leagues = getEnabledLeagues();
+  return leagues.map((league) => ({
+    params: { slug: league.slug },
+    props: { league },
+  }));
+}
+
+const { league } = Astro.props;
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{league.game} - {league.event} | Next League Start</title>
+    <meta
+      name="description"
+      content={`Countdown and details for ${league.game} ${league.event}. Features: ${league.features.join(", ")}`}
+    />
+    <link rel="canonical" href={`https://nextleaguestart.com/games/${league.slug}`} />
+  </Fragment>
+
+  <article class="mx-auto max-w-4xl px-6 py-12">
+    <header class="mb-12">
+      <a
+        href="/"
+        class="mb-6 inline-block text-sm text-mist transition-colors hover:text-[var(--accent-color)]"
+      >
+        ← Back to countdowns
+      </a>
+      <div
+        class="relative mb-6 h-48 overflow-hidden rounded-lg bg-cover bg-center"
+        style={`background-image: linear-gradient(135deg, #1c1c1e 0%, #0a0a0b 100%), url(${league.bg_image})`}
+      >
+        <div class="absolute inset-0 bg-gradient-to-t from-void to-transparent"></div>
+        <div class="absolute bottom-6 left-6">
+          <h1 class="text-3xl font-bold text-bone md:text-4xl">{league.game}</h1>
+          <p class="mt-1 text-lg text-silver">{league.event}</p>
+        </div>
+      </div>
+      <div class="accent-glow font-mono text-2xl font-bold md:text-3xl">
+        <time datetime={league.date}>
+          {new Date(league.date).toLocaleString("en-US", {
+            dateStyle: "full",
+            timeStyle: "short",
+          })}
+        </time>
+      </div>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-xl font-semibold text-bone">Features</h2>
+      <ul class="grid gap-3 sm:grid-cols-2">
+        {league.features.map((feature) => (
+          <li
+            class="flex items-center gap-2 rounded-lg border border-slate bg-void-soft px-4 py-3"
+          >
+            <span
+              class="h-2 w-2 shrink-0 rounded-full"
+              style="background-color: var(--accent-color)"
+            ></span>
+            <span class="text-silver">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-4 text-xl font-semibold text-bone">News & Updates</h2>
+      <ul class="space-y-3">
+        {league.news.map((item) => (
+          <li>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="accent-border group flex items-center justify-between rounded-lg border px-4 py-3 transition-colors hover:bg-void-soft"
+            >
+              <span class="text-silver group-hover:text-bone">{item.title}</span>
+              <span class="text-sm text-mist">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</Layout>

@@ -1,17 +1,28 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { getEnabledLeagues } from "../lib/leagues";
+import CountdownCards from "../components/CountdownCards.svelte";
 
+const leagues = getEnabledLeagues();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Fragment slot="head">
+    <title>Next League Start | ARPG Countdown Tracker</title>
+    <meta
+      name="description"
+      content="Countdown to the next Path of Exile, Diablo 4, and ARPG league starts. Never miss a launch."
+    />
+  </Fragment>
+
+  <header class="border-b border-slate bg-void-soft px-6 py-8">
+    <h1 class="accent-glow text-3xl font-bold tracking-tight md:text-4xl">
+      Next League Start
+    </h1>
+    <p class="mt-2 text-mist">
+      Stack-ranked countdowns for your favorite ARPG launches
+    </p>
+  </header>
+
+  <CountdownCards client:load leagues={leagues} />
+</Layout>

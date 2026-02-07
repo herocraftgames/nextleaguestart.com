@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Grim ARPG theme - dark, minimal, premium */
+@theme {
+  --color-void: #0a0a0b;
+  --color-void-soft: #141416;
+  --color-ash: #1c1c1e;
+  --color-slate: #2d2d30;
+  --color-mist: #6b6b70;
+  --color-silver: #a1a1a6;
+  --color-bone: #e5e5e7;
+  --color-glow: var(--accent-color, #d97706);
+}
+
+/* CSS variable for dynamic accent - set by layout script */
+:root {
+  --accent-color: #d97706;
+}
+
+html {
+  @apply bg-void text-bone antialiased;
+}
+
+body {
+  @apply min-h-screen;
+}
+
+/* Accent glows for buttons and borders */
+.accent-border {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent-color) 30%, transparent);
+}
+
+.accent-glow {
+  color: var(--accent-color);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+.btn-accent {
+  @apply transition-all duration-200;
+  background: color-mix(in srgb, var(--accent-color) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 50%, transparent);
+}
+.btn-accent:hover {
+  background: color-mix(in srgb, var(--accent-color) 35%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent-color) 25%, transparent);
+}

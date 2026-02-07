@@ -1,0 +1,25 @@
+---
+import "../styles/global.css";
+import { getHeroLeague } from "../lib/leagues";
+import Sidebar from "../components/Sidebar.svelte";
+
+const heroLeague = getHeroLeague();
+const accentColor = heroLeague?.accent_color ?? "#d97706";
+---
+
+<html lang="en" style={`--accent-color: ${accentColor}`}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head" />
+  </head>
+  <body class="flex min-h-screen">
+    <Sidebar client:load />
+    <main class="flex-1 overflow-auto">
+      <slot />
+    </main>
+  </body>
+</html>

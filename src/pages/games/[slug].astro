@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLeagueBySlug, getEnabledLeagues } from "../../lib/leagues";
+import SEO from "../../components/SEO.astro";
+import { getEnabledLeagues } from "../../lib/leagues";
 
 export function getStaticPaths() {
   const leagues = getEnabledLeagues();
@@ -11,21 +12,34 @@ export function getStaticPaths() {
 }
 
 const { league } = Astro.props;
+const site = "https://nextleaguestart.com";
+const url = `${site}/games/${league.slug}`;
+const title = `${league.game} - ${league.event} | Next League Start`;
+const description = `Countdown and details for ${league.game} ${league.event}. Features: ${league.features.join(", ")}`;
 ---
 
 <Layout>
-  <Fragment slot="head">
-    <title>{league.game} - {league.event} | Next League Start</title>
-    <meta
-      name="description"
-      content={`Countdown and details for ${league.game} ${league.event}. Features: ${league.features.join(", ")}`}
-    />
-    <link rel="canonical" href={`https://nextleaguestart.com/games/${league.slug}`} />
-  </Fragment>
+  <SEO
+    slot="head"
+    title={title}
+    description={description}
+    url={url}
+    image={league.logo}
+    type="article"
+    jsonLd={{
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: `${league.game} - ${league.event}`,
+      startDate: league.date,
+      url,
+      description,
+      image: new URL(league.logo, site).href,
+    }}
+  />
 
   <article class="py-12">
     <header class="mb-12">
-      <div class="mx-auto max-w-4xl px-6">
+      <div class="content-wrap">
         <a
           href="/"
           class="mb-6 inline-block text-sm text-mist transition-colors hover:text-[var(--accent-color)]"
@@ -35,7 +49,7 @@ const { league } = Astro.props;
       </div>
       <div
         class="relative h-48 w-full overflow-hidden bg-cover bg-center"
-        style={`background-image: linear-gradient(135deg, #1c1c1e 0%, #0a0a0b 100%), url(${league.bg_image})`}
+        style={`background-image: linear-gradient(135deg, var(--color-ash) 0%, var(--color-void) 100%), url(${league.bg_image})`}
       >
         <div class="absolute inset-0 bg-gradient-to-t from-void to-transparent"></div>
         <div class="absolute bottom-6 left-6 right-6 mx-auto max-w-4xl px-6 md:left-1/2 md:right-auto md:-translate-x-1/2 md:px-0">
@@ -43,7 +57,7 @@ const { league } = Astro.props;
           <p class="mt-1 text-lg text-silver">{league.event}</p>
         </div>
       </div>
-      <div class="mx-auto max-w-4xl px-6">
+      <div class="content-wrap">
         <div class="accent-glow font-mono text-2xl font-bold md:text-3xl">
           <time datetime={league.date}>
             {new Date(league.date).toLocaleString("en-US", {
@@ -55,7 +69,7 @@ const { league } = Astro.props;
       </div>
     </header>
 
-    <section class="mx-auto max-w-4xl px-6 mb-12">
+    <section class="content-wrap mb-12">
       <h2 class="mb-4 text-xl font-semibold text-bone">Features</h2>
       <ul class="grid gap-3 sm:grid-cols-2">
         {league.features.map((feature) => (
@@ -72,7 +86,7 @@ const { league } = Astro.props;
       </ul>
     </section>
 
-    <section class="mx-auto max-w-4xl px-6">
+    <section class="content-wrap">
       <h2 class="mb-4 text-xl font-semibold text-bone">News & Updates</h2>
       <ul class="space-y-3">
         {league.news.map((item) => (

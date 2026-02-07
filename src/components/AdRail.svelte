@@ -33,7 +33,7 @@
         </p>
       </div>
       <!-- Ad slot: add your ad code here; when blocked, background message shows through -->
-      <div class="relative z-10 h-full min-h-full w-full min-w-0"></div>
+      <div class="relative z-10 size-full min-w-0"></div>
     </div>
   </div>
 </aside>

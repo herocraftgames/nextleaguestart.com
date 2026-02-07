@@ -25,11 +25,7 @@ const logos = [
     url: "https://lastepoch.com/_nuxt/img/78281a5.png",
     ext: "png",
   },
-  {
-    id: "poe-2",
-    url: null, // already local - will copy from /images/poe2-logo.webp
-    ext: "webp",
-  },
+  // poe-2: uses /images/poe2-logo.webp directly (manually managed)
   {
     id: "diablo-4",
     url: "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltf02e9771079d579c/691faca3521fe68049244ffa/D4_X2_Logo_enUS.png?format=webp",
@@ -42,16 +38,6 @@ await mkdir(ASSETS_DIR, { recursive: true });
 for (const logo of logos) {
   const filename = `${logo.id}.${logo.ext}`;
   const filepath = join(ASSETS_DIR, filename);
-
-  if (logo.id === "poe-2") {
-    // Copy existing poe2-logo.webp to assets
-    const sourcePath = join(__dirname, "..", "public", "images", "poe2-logo.webp");
-    const { readFile } = await import("fs/promises");
-    const buffer = await readFile(sourcePath);
-    await writeFile(join(ASSETS_DIR, "poe-2.webp"), buffer);
-    console.log(`Copied poe-2.webp from images`);
-    continue;
-  }
 
   const response = await fetch(logo.url);
   if (!response.ok) {

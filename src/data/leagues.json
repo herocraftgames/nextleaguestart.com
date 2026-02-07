@@ -76,7 +76,7 @@
     "date": "2026-11-20T19:00:00Z",
     "accent_color": "#d97706",
     "bg_image": "/images/poe2-hero.jpg",
-    "logo": "/assets/logos/poe-2.webp",
+    "logo": "/images/poe2-logo.webp",
     "is_enabled": true,
     "features": [
       "12 Character Classes",

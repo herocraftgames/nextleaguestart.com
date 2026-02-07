@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  type?: "website" | "article";
+  jsonLd?: object;
+}
+
+const { title, description, url, image, type = "website", jsonLd } = Astro.props;
+const site = Astro.site ?? "https://nextleaguestart.com";
+const absoluteUrl = url.startsWith("http") ? url : new URL(url, site).href;
+const absoluteImage = image
+  ? (image.startsWith("http") ? image : new URL(image, site).href)
+  : new URL("/images/nextleaguelaunch-logo-clean.png", site).href;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={absoluteUrl} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={absoluteUrl} />
+<meta property="og:type" content={type} />
+<meta property="og:image" content={absoluteImage} />
+<meta property="og:site_name" content="Next League Start" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImage} />
+
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

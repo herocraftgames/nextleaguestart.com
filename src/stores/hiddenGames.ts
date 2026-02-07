@@ -8,7 +8,3 @@ export function toggleGameVisibility(gameId: string) {
   const current = hiddenGames.get();
   hiddenGames.set({ ...current, [gameId]: !current[gameId] });
 }
-
-export function isGameHidden(gameId: string): boolean {
-  return !!hiddenGames.get()[gameId];
-}

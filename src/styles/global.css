@@ -25,6 +25,11 @@ body {
   @apply min-h-screen overflow-x-hidden;
 }
 
+/* Content container */
+.content-wrap {
+  @apply mx-auto max-w-4xl px-6;
+}
+
 /* Accent glows for buttons and borders */
 .accent-border {
   border-color: var(--accent-color);
@@ -34,6 +39,19 @@ body {
 .accent-glow {
   color: var(--accent-color);
   text-shadow: 0 0 20px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+/* Logo masked with accent color (matches title) */
+.site-logo {
+  background-color: var(--accent-color);
+  mask-image: url("/images/nextleaguelaunch-logo.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("/images/nextleaguelaunch-logo.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 
 .btn-accent {

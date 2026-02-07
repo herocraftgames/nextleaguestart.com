@@ -1,23 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getEnabledLeagues } from "../lib/leagues";
+import SEO from "../components/SEO.astro";
 import CountdownCards from "../components/CountdownCards.svelte";
+import { getEnabledLeagues, getHeroLeague } from "../lib/leagues";
 
 const leagues = getEnabledLeagues();
+const heroLeague = getHeroLeague();
+const title = "Next League Start | ARPG Countdown Tracker";
+const description =
+  "Countdown to the next Path of Exile, Diablo 4, and ARPG league starts. Never miss a launch.";
+const site = "https://nextleaguestart.com";
 ---
 
 <Layout>
-  <Fragment slot="head">
-    <title>Next League Start | ARPG Countdown Tracker</title>
-    <meta
-      name="description"
-      content="Countdown to the next Path of Exile, Diablo 4, and ARPG league starts. Never miss a launch."
-    />
-  </Fragment>
+  <SEO
+    slot="head"
+    title={title}
+    description={description}
+    url={site}
+    image={heroLeague?.logo}
+    type="website"
+    jsonLd={{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Next League Start",
+      url: site,
+      description,
+    }}
+  />
 
   <header class="border-b border-slate bg-void-soft px-6 py-8">
-    <h1 class="accent-glow text-3xl font-bold tracking-tight md:text-4xl">
-      Next League Start
+    <h1 class="flex items-center gap-3 text-3xl font-bold tracking-tight md:text-4xl">
+      <span
+        class="site-logo h-10 w-10 shrink-0 md:h-12 md:w-12"
+        aria-hidden="true"
+      />
+      <span class="accent-glow">Next League Start</span>
     </h1>
     <p class="mt-2 text-mist">
       Stack-ranked countdowns for your favorite ARPG launches

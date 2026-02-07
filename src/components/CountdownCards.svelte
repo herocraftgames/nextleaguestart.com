@@ -8,7 +8,7 @@
   $: visibleLeagues = leagues.filter((l) => !$hiddenGames[l.id]);
 </script>
 
-<div class="grid w-full grid-cols-1 gap-6 p-6">
+<div class="grid gap-6 p-6">
   {#each visibleLeagues as league (league.id)}
     <article class="w-full min-w-0">
       <a
@@ -17,7 +17,7 @@
       >
         <div
           class="relative h-32 bg-cover bg-center"
-          style="background-image: linear-gradient(135deg, #1c1c1e 0%, #0a0a0b 100%), url({league.bg_image})"
+          style="background-image: linear-gradient(135deg, var(--color-ash) 0%, var(--color-void) 100%), url({league.bg_image})"
         >
           <div
             class="absolute inset-0 bg-gradient-to-t from-void to-transparent"
@@ -48,9 +48,7 @@
               <Countdown date={league.date} />
             </div>
           </div>
-          <span
-            class="mt-2 inline-block text-sm font-medium text-[var(--accent-color)] transition-colors group-hover:text-[var(--accent-color)]"
-          >
+          <span class="mt-2 inline-block text-sm font-medium text-[var(--accent-color)]">
             View details →
           </span>
         </div>

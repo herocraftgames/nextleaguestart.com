@@ -29,22 +29,18 @@
 {#if isLive}
   <span class="accent-glow font-mono text-2xl font-bold">Live!</span>
 {:else}
+  {@const units = [
+    { value: parts.days, label: "days" },
+    { value: parts.hours, label: "hours" },
+    { value: parts.minutes, label: "minutes" },
+    { value: parts.seconds, label: "seconds" },
+  ]}
   <div class="flex gap-4">
-    <div class="flex flex-col items-center gap-1.5">
-      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.days}</span>
-      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">days</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.hours}</span>
-      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">hours</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.minutes}</span>
-      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">minutes</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{parts.seconds}</span>
-      <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">seconds</span>
-    </div>
+    {#each units as { value, label }}
+      <div class="flex flex-col items-center gap-1.5">
+        <span class="accent-glow font-mono text-2xl font-bold tabular-nums">{value}</span>
+        <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">{label}</span>
+      </div>
+    {/each}
   </div>
 {/if}

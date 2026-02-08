@@ -76,7 +76,7 @@
     "date": "2026-11-20T19:00:00Z",
     "accent_color": "#d97706",
     "bg_image": "/images/poe2-hero.jpg",
-    "logo": "/images/poe2-logo.webp",
+    "logo": "/assets/logos/poe-2.webp",
     "is_enabled": true,
     "features": [
       "12 Character Classes",
@@ -114,6 +114,52 @@
       {
         "title": "30th Anniversary Spotlight",
         "link": "https://news.blizzard.com/diablo4"
+      }
+    ]
+  },
+  {
+    "id": "slormancer",
+    "game": "Slormancer",
+    "slug": "slormancer",
+    "event": "Early Access — Next Major Update (TBA)",
+    "date": "2026-06-01T12:00:00Z",
+    "accent_color": "#0d9488",
+    "bg_image": "/images/slormancer-hero.jpg",
+    "logo": "/assets/logos/slormancer.png",
+    "is_enabled": true,
+    "features": [
+      "Infinite Dungeon",
+      "New Classes & Skills",
+      "Seasonal Content",
+      "Endless Progression"
+    ],
+    "news": [
+      {
+        "title": "Steam News",
+        "link": "https://store.steampowered.com/news/app/1228820"
+      }
+    ]
+  },
+  {
+    "id": "no-rest-for-the-wicked",
+    "game": "No Rest for the Wicked",
+    "slug": "no-rest-for-the-wicked",
+    "event": "Early Access — Content Updates (TBA)",
+    "date": "2026-09-01T17:00:00Z",
+    "accent_color": "#ca8a04",
+    "bg_image": "/images/no-rest-for-the-wicked-hero.jpg",
+    "logo": "/assets/logos/no-rest-for-the-wicked.png",
+    "is_enabled": true,
+    "features": [
+      "Hand-Painted World",
+      "Precise Combat",
+      "Housing & Farming",
+      "Online Co-op"
+    ],
+    "news": [
+      {
+        "title": "Official News",
+        "link": "https://www.norestforthewicked.com"
       }
     ]
   }

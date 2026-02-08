@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SEO from "../components/SEO.astro";
+
+const title = "About | Next League Start";
+const description =
+  "Next League Start is independently developed by a solo developer. Not affiliated with any game studio or publisher. Support the project via Buy Me a Coffee.";
+const site = "https://nextleaguestart.com";
+const url = `${site}/about`;
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    title={title}
+    description={description}
+    url={url}
+    type="website"
+  />
+
+  <article class="content-wrap py-10">
+    <header class="mb-8">
+      <a href="/" class="text-sm text-mist hover:text-silver">← Back to countdowns</a>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-bone md:text-4xl">
+        About
+      </h1>
+    </header>
+
+    <div class="space-y-6">
+      <p class="text-silver">
+        Next League Start is built and run by a single developer, with occasional help from the community. Support comes from readers (for example via Buy Me a Coffee). This project is not linked to any game studio, publisher, or official gaming brand. League dates and other details are best-effort only and may be wrong or lag by up to 48 hours.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a
+          href="https://buymeacoffee.com/herocraftgames"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-accent inline-flex rounded px-4 py-2 text-sm font-medium"
+          title="Support the developer — Buy a mana potion"
+        >
+          Buy a mana potion
+        </a>
+        <a
+          href="https://github.com/herocraftgames/nextleaguestart.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-mist hover:text-silver underline"
+          title="GitHub"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

@@ -3,9 +3,11 @@ import "../styles/global.css";
 import { getHeroLeague } from "../lib/leagues";
 import Sidebar from "../components/Sidebar.svelte";
 import AdRail from "../components/AdRail.svelte";
+import Footer from "../components/Footer.astro";
 
 const heroLeague = getHeroLeague();
 const accentColor = heroLeague?.accent_color ?? "#d97706";
+const isHome = Astro.url.pathname === "/";
 ---
 
 <html lang="en" style={`--accent-color: ${accentColor}`}>
@@ -19,9 +21,10 @@ const accentColor = heroLeague?.accent_color ?? "#d97706";
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </head>
   <body class="flex min-h-screen">
-    <Sidebar client:load />
-    <main class="min-w-0 flex-1 overflow-auto">
+    {isHome && <Sidebar client:load />}
+    <main class="min-w-0 flex-1 overflow-auto flex flex-col">
       <slot />
+      <Footer />
     </main>
     <AdRail client:load />
   </body>

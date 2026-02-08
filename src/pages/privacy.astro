@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SEO from "../components/SEO.astro";
+
+const title = "Privacy | Next League Start";
+const description =
+  "Privacy policy for Next League Start. We use Simple Analytics for anonymous metrics only and local storage for your game filter preferences. No cookies, no personal data.";
+const site = "https://nextleaguestart.com";
+const url = `${site}/privacy`;
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    title={title}
+    description={description}
+    url={url}
+    type="website"
+  />
+
+  <article class="content-wrap py-10">
+    <header class="mb-8">
+      <a href="/" class="text-sm text-mist hover:text-silver">← Back to countdowns</a>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-bone md:text-4xl">
+        Privacy
+      </h1>
+    </header>
+
+    <div class="space-y-4">
+      <p class="text-silver">
+        We care about your privacy. Below is what we collect and how we use it when you use <strong class="text-bone">Next League Start</strong>.
+      </p>
+
+      <p class="text-silver">
+        We don’t use cookies and we don’t process personal data.
+      </p>
+
+      <p class="text-silver">
+        For basic usage stats we use <a href="https://simpleanalytics.com" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-color)] underline hover:no-underline">Simple Analytics</a>. Everything we get from it is anonymous. More detail is in their <a href="https://simpleanalytics.com/privacy" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-color)] underline hover:no-underline">privacy docs</a>.
+      </p>
+
+      <p class="text-silver">
+        We also use <strong class="text-bone">local storage</strong> so we can remember which games you’ve chosen to show or hide in the countdown list. That data never leaves your device.
+      </p>
+
+      <p class="text-silver">
+        Questions? Open an issue or get in touch via <a href="https://github.com/herocraftgames/nextleaguestart.com" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-color)] underline hover:no-underline">GitHub</a>.
+      </p>
+
+      <h2 class="mt-10 border-b border-slate pb-2 text-xl font-semibold text-bone">
+        What we collect (and what we don’t)
+      </h2>
+
+      <p class="text-silver">
+        If your browser sends a <em>Do Not Track</em> signal, we don’t collect or store any analytics data.
+      </p>
+
+      <p class="text-silver">
+        Otherwise we only get the following, and it’s all anonymous (via Simple Analytics):
+      </p>
+
+      <ul class="list-inside list-disc space-y-1 text-silver">
+        <li>Whether a visit is unique</li>
+        <li>Visit timestamps</li>
+        <li>Anonymized browser/device info (user agent)</li>
+        <li>Country and language</li>
+        <li>Referrer (partial, where you came from)</li>
+        <li>Screen size</li>
+        <li>How long you stayed on a page</li>
+        <li>We do <strong class="text-bone">not</strong> use cookies or similar tech</li>
+        <li>We do <strong class="text-bone">not</strong> collect or store IP addresses</li>
+      </ul>
+
+      <p class="mt-6 text-silver">
+        For full details, see Simple Analytics’ <a href="https://simpleanalytics.com/privacy" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-color)] underline hover:no-underline">privacy</a> and <a href="https://simpleanalytics.com/gdpr" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-color)] underline hover:no-underline">GDPR</a> pages.
+      </p>
+    </div>
+  </article>
+</Layout>

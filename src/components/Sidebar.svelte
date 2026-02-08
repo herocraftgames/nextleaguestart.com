@@ -6,7 +6,7 @@
 </script>
 
 <aside
-  class="flex w-28 shrink-0 flex-col border-r border-slate bg-void-soft p-4"
+  class="flex w-32 shrink-0 flex-col border-r border-slate bg-void-soft p-4"
   role="navigation"
 >
   <h2 class="mb-4 border-b border-slate pb-2 text-center text-sm font-semibold uppercase tracking-wider text-mist">
@@ -47,14 +47,17 @@
   </ul>
 
   <div class="mt-auto pt-6">
+    <h2 class="mb-4 border-b border-slate pb-2 text-center text-[10px] font-semibold uppercase leading-tight tracking-wider text-mist">
+      Support the developer
+    </h2>
     <a
       href="https://buymeacoffee.com/herocraftgames"
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-accent block rounded px-2 py-1.5 text-center text-xs font-medium leading-tight"
-      title="Support the servers — Buy a Mana Potion"
+      class="btn-accent block rounded px-2 py-1.5 text-center text-[10px] font-medium leading-tight"
+      title="Support the developer — Buy a mana potion"
     >
-      Buy Mana Potion
+      Buy a mana potion
     </a>
   </div>
 </aside>

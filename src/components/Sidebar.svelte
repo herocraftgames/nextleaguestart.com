@@ -48,7 +48,7 @@
 
   <div class="mt-auto pt-6">
     <a
-      href="https://buymeacoffee.com"
+      href="https://buymeacoffee.com/herocraftgames"
       target="_blank"
       rel="noopener noreferrer"
       class="btn-accent block rounded px-2 py-1.5 text-center text-xs font-medium leading-tight"

@@ -16,7 +16,7 @@
         class="accent-border group block overflow-hidden rounded-lg border bg-void-soft transition-all hover:scale-[1.005]"
       >
         <div
-          class="relative h-32 bg-cover bg-center"
+          class="relative h-32 bg-cover bg-top"
           style="background-image: linear-gradient(to top, var(--color-void) 0%, transparent 55%), url({league.bg_image})"
         >
           <div

@@ -75,7 +75,7 @@
     "event": "Full 1.0 Launch",
     "date": "2026-11-20T19:00:00Z",
     "accent_color": "#d97706",
-    "bg_image": "/images/poe2-hero.jpg",
+    "bg_image": "/images/poe2-hero.webp",
     "logo": "/assets/logos/poe-2.webp",
     "is_enabled": true,
     "features": [
@@ -102,7 +102,7 @@
     "event": "Lord of Hatred Expansion",
     "date": "2026-04-28T17:00:00Z",
     "accent_color": "#b91c1c",
-    "bg_image": "/images/d4-vessel.jpg",
+    "bg_image": "/images/d4-vessel.png",
     "logo": "/assets/logos/diablo-4.png",
     "is_enabled": true,
     "features": [

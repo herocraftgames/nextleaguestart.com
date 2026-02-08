@@ -17,7 +17,7 @@
       >
         <div
           class="relative h-32 bg-cover bg-center"
-          style="background-image: linear-gradient(135deg, var(--color-ash) 0%, var(--color-void) 100%), url({league.bg_image})"
+          style="background-image: linear-gradient(to top, var(--color-void) 0%, transparent 55%), url({league.bg_image})"
         >
           <div
             class="absolute inset-0 bg-gradient-to-t from-void to-transparent"

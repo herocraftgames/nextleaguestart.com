@@ -15,6 +15,8 @@ const accentColor = heroLeague?.accent_color ?? "#d97706";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <slot name="head" />
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </head>
   <body class="flex min-h-screen">
     <Sidebar client:load />

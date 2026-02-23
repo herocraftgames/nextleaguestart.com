@@ -1,11 +1,16 @@
 <script lang="ts">
   import type { League } from "../lib/leagues";
+  import { isLeagueLive } from "../lib/leagues";
   import { hiddenGames } from "../stores/hiddenGames";
+  import { showLiveLeagues } from "../stores/showLiveLeagues";
   import Countdown from "./Countdown.svelte";
 
   export let leagues: League[] = [];
 
-  $: visibleLeagues = leagues.filter((l) => !$hiddenGames[l.id]);
+  $: visibleLeagues = leagues.filter(
+    (l) =>
+      !$hiddenGames[l.id] && ($showLiveLeagues || !isLeagueLive(l))
+  );
 </script>
 
 <div class="grid gap-6 p-6">

@@ -9,7 +9,8 @@
     "astro": "astro",
     "favicon": "node scripts/generate-favicon.mjs",
     "logo:svg": "node scripts/convert-logo-to-svg.mjs",
-    "logo": "node scripts/convert-logo-to-svg.mjs && node scripts/generate-favicon.mjs"
+    "logo": "node scripts/convert-logo-to-svg.mjs && node scripts/generate-favicon.mjs",
+    "gather-dates": "node scripts/gather-launch-dates.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -23,6 +24,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "dotenv": "^17.3.1",
     "imagetracerjs": "^1.2.6",
     "sharp": "^0.34.5",
     "to-ico": "^1.1.5"

@@ -1,0 +1,23 @@
+---
+description: When the user asks to update league (start) dates, run the gather script and update leagues.json
+alwaysApply: true
+---
+
+# Update league start dates
+
+When the user says **"update league dates"** or **"update league start dates"** (or equivalent), follow this workflow:
+
+1. **Gather external data**  
+   Run: `npm run gather-dates` (or `node scripts/gather-launch-dates.mjs`).  
+   If env vars are missing, run anyway; the script will report which sources need `STEAM_API_KEY` / `POE_OAUTH_TOKEN`.
+
+2. **Update `src/data/leagues.json`**  
+   - Use the script output and/or any dates the user provides.  
+   - Edit only the fields that need changing: `date` (required), and `event` if the event name changed.  
+   - Keep `date` in **ISO 8601** with timezone: `YYYY-MM-DDTHH:mm:ssZ` (e.g. `2026-02-27T07:00:00Z`).  
+   - Preserve the rest of each league object (id, game, slug, accent_color, features, news, etc.).
+
+3. **If the user gives a specific game or new date**  
+   Find the league by `id` or `game` and update that league’s `date` (and `event` if relevant). Confirm the change.
+
+Reference: external sources and script setup are documented in `docs/EXTERNAL_DATA_SOURCES.md`.

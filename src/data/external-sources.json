@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "leagueId": "path-of-exile-1",
+      "type": "poe",
+      "realm": "pc",
+      "description": "Path of Exile 1 challenge leagues. Requires POE_OAUTH_TOKEN or GGG client credentials (service:leagues)."
+    },
+    {
+      "leagueId": "poe-2",
+      "type": "poe",
+      "realm": "poe2",
+      "description": "Path of Exile 2 leagues/launch. Same API, realm=poe2."
+    },
+    {
+      "leagueId": "diablo-4",
+      "type": "rss",
+      "url": "https://news.blizzard.com/en-us/feed/diablo-4",
+      "description": "Blizzard Diablo 4 news feed. Scan items for date mentions (e.g. expansion, release)."
+    },
+    {
+      "leagueId": "last-epoch",
+      "type": "steam_news",
+      "appId": "899770",
+      "description": "Steam news for Last Epoch. Requires STEAM_API_KEY. Dates appear in post titles/body."
+    },
+    {
+      "leagueId": "slormancer",
+      "type": "steam_news",
+      "appId": "1228820",
+      "description": "Steam news for Slormancer."
+    },
+    {
+      "leagueId": "no-rest-for-the-wicked",
+      "type": "steam_news",
+      "appId": "1371980",
+      "description": "Steam news for No Rest for the Wicked."
+    },
+    {
+      "leagueId": "torchlight-infinite",
+      "type": "steam_news",
+      "appId": "1974050",
+      "description": "Steam news for Torchlight Infinite (season announcements)."
+    }
+  ],
+  "manualOnly": ["torchlight-infinite"],
+  "notes": {
+    "poe": "Register at https://www.pathofexile.com/developer/docs to get OAuth client; use service:leagues scope. League objects include startTime/endTime.",
+    "steam_news": "Free API key at https://steamcommunity.com/dev/apikey. GetNewsForApp returns recent news; parse titles/contents for date patterns.",
+    "rss": "No key required. Parse feed for <pubDate> and date-like text in titles/descriptions."
+  }
+}

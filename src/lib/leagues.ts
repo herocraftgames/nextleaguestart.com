@@ -40,3 +40,8 @@ export function getHeroLeague(): League | null {
 export function getLeagueBySlug(slug: string): League | undefined {
   return leagues.find((l) => l.slug === slug);
 }
+
+/** True if the league’s launch date is in the past (already live) */
+export function isLeagueLive(league: League): boolean {
+  return new Date(league.date).getTime() < Date.now();
+}

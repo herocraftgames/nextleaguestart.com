@@ -10,7 +10,8 @@
     "favicon": "node scripts/generate-favicon.mjs",
     "logo:svg": "node scripts/convert-logo-to-svg.mjs",
     "logo": "node scripts/convert-logo-to-svg.mjs && node scripts/generate-favicon.mjs",
-    "gather-dates": "node scripts/gather-launch-dates.mjs"
+    "gather-dates": "node scripts/gather-launch-dates.mjs",
+    "logos:fetch": "node scripts/download-logos.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

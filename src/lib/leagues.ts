@@ -11,6 +11,8 @@ export interface League {
   slug: string;
   event: string;
   date: string;
+  /** When set, `date` is only an estimate for ordering; show this label instead of a countdown. */
+  date_tba?: string;
   accent_color: string;
   bg_image: string;
   logo?: string;
@@ -43,5 +45,6 @@ export function getLeagueBySlug(slug: string): League | undefined {
 
 /** True if the league’s launch date is in the past (already live) */
 export function isLeagueLive(league: League): boolean {
+  if (league.date_tba) return false;
   return new Date(league.date).getTime() < Date.now();
 }

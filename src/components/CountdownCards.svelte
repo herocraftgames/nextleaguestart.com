@@ -42,17 +42,27 @@
           </div>
         </div>
         <div class="p-4">
-          <div class="mb-2 flex items-start gap-4">
-            <div class="flex flex-col gap-1.5">
+          {#if league.date_tba}
+            <div class="mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <span class="accent-glow font-mono text-2xl font-bold uppercase tracking-wider">
-                Launches in:
+                Expected:
               </span>
-              <span class="invisible rounded-md border border-slate px-2.5 py-0.5 text-xs">days</span>
+              <span class="accent-glow font-mono text-2xl font-bold">{league.date_tba}</span>
+              <span class="rounded-md border border-slate px-2.5 py-0.5 text-xs text-mist">Date TBA</span>
             </div>
-            <div class="accent-glow font-mono text-2xl font-bold">
-              <Countdown date={league.date} />
+          {:else}
+            <div class="mb-2 flex items-start gap-4">
+              <div class="flex flex-col gap-1.5">
+                <span class="accent-glow font-mono text-2xl font-bold uppercase tracking-wider">
+                  Launches in:
+                </span>
+                <span class="invisible rounded-md border border-slate px-2.5 py-0.5 text-xs">days</span>
+              </div>
+              <div class="accent-glow font-mono text-2xl font-bold">
+                <Countdown date={league.date} />
+              </div>
             </div>
-          </div>
+          {/if}
           <span class="mt-2 inline-block text-sm font-medium text-[var(--accent-color)]">
             View details →
           </span>

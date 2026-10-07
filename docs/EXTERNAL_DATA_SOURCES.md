@@ -24,7 +24,7 @@ Run the script locally or in CI (e.g. weekly) and use the output to decide when 
 - **Endpoint:** `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid={appId}&count=15&key={key}&format=json`.
 - **Data:** Recent news items (title + content). Launch/season dates are in text, not a dedicated “release_date” field; the script parses date-like strings from titles and body.
 - **Auth:** Free Steam Web API key from [steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey). Set `STEAM_API_KEY` when running the script.
-- **App IDs we use:** Last Epoch `899770`, Slormancer `1228820`, No Rest for the Wicked `1371980`, Torchlight Infinite `1974050`.
+- **App IDs we use:** Last Epoch `899770`, Slormancer `1104280`, No Rest for the Wicked `1371980`, Torchlight Infinite `1974050`.
 
 ### 3. Blizzard — RSS
 

@@ -26,7 +26,7 @@ const description = `Countdown and details for ${league.game} ${league.event}. F
     url={url}
     image={league.logo}
     type="article"
-    jsonLd={{
+    jsonLd={league.date_tba ? undefined : {
       "@context": "https://schema.org",
       "@type": "Event",
       name: `${league.game} - ${league.event}`,
@@ -59,12 +59,16 @@ const description = `Countdown and details for ${league.game} ${league.event}. F
       </div>
       <div class="content-wrap">
         <div class="accent-glow font-mono text-2xl font-bold md:text-3xl">
-          <time datetime={league.date}>
-            {new Date(league.date).toLocaleString("en-US", {
-              dateStyle: "full",
-              timeStyle: "short",
-            })}
-          </time>
+          {league.date_tba ? (
+            <span>Expected: {league.date_tba} (date TBA)</span>
+          ) : (
+            <time datetime={league.date}>
+              {new Date(league.date).toLocaleString("en-US", {
+                dateStyle: "full",
+                timeStyle: "short",
+              })}
+            </time>
+          )}
         </div>
       </div>
     </header>

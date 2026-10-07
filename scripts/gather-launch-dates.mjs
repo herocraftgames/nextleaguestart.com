@@ -183,7 +183,8 @@ async function main() {
   console.log("-".repeat(80));
   for (const r of results) {
     const id = (r.source.leagueId + " ").padEnd(28);
-    const our = formatDate(r.ourDate).padEnd(22);
+    const tba = leagueById[r.source.leagueId]?.date_tba;
+    const our = (tba ? `TBA (${tba})` : formatDate(r.ourDate)).padEnd(22);
     let ext = "";
     if (r.error) ext = r.error;
     else if (r.externalLabel) ext = `${r.externalLabel}: ${formatDate(r.externalDates[0])}`;
